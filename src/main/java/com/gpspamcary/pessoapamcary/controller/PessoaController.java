@@ -25,4 +25,19 @@ public class PessoaController {
         return new ResponseEntity(service.save(pessoa), HttpStatus.CREATED);
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<Pessoa> read(@PathVariable Long id){
+        return new ResponseEntity(service.findByID(id), HttpStatus.CREATED);
+    }
+
+    @PutMapping
+    public ResponseEntity<Pessoa> update(@RequestBody Pessoa pessoa){
+        return ResponseEntity.ok(service.save(pessoa));
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> delete(@PathVariable Long id){
+        service.deleteById(id);
+        return new ResponseEntity(HttpStatus.OK);
+    }
 }
