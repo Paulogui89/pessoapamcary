@@ -1,5 +1,6 @@
 package com.gpspamcary.pessoapamcary.controller;
 
+import com.gpspamcary.pessoapamcary.dto.PessoaDTO;
 import com.gpspamcary.pessoapamcary.model.Pessoa;
 import com.gpspamcary.pessoapamcary.service.PessoaService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,22 +17,22 @@ public class PessoaController {
     private PessoaService service;
 
     @GetMapping
-    public ResponseEntity<List<Pessoa>> findAll(){
+    public ResponseEntity<List<PessoaDTO>> findAll(){
         return ResponseEntity.ok(service.findAll());
     }
 
     @PostMapping
-    public ResponseEntity<Pessoa> create(@RequestBody Pessoa pessoa){
+    public ResponseEntity<PessoaDTO> create(@RequestBody PessoaDTO pessoa){
         return new ResponseEntity(service.save(pessoa), HttpStatus.CREATED);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Pessoa> read(@PathVariable Long id){
+    public ResponseEntity<PessoaDTO> read(@PathVariable Long id){
         return new ResponseEntity(service.findByID(id), HttpStatus.OK);
     }
 
     @PutMapping
-    public ResponseEntity<Pessoa> update(@RequestBody Pessoa pessoa){
+    public ResponseEntity<PessoaDTO> update(@RequestBody PessoaDTO pessoa){
         return ResponseEntity.ok(service.save(pessoa));
     }
 
@@ -42,7 +43,7 @@ public class PessoaController {
     }
 
     @GetMapping("/cpf/{cpf}")
-    public ResponseEntity<Pessoa> findByCPF(@PathVariable String cpf){
+    public ResponseEntity<PessoaDTO> findByCPF(@PathVariable String cpf){
         return new ResponseEntity(service.findByCPF(cpf), HttpStatus.OK);
     }
 }

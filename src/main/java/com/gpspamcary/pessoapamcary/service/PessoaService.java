@@ -1,10 +1,12 @@
 package com.gpspamcary.pessoapamcary.service;
 
 
+import com.gpspamcary.pessoapamcary.dto.PessoaDTO;
 import com.gpspamcary.pessoapamcary.exception.PessoaDataBaseConstraintException;
 import com.gpspamcary.pessoapamcary.exception.PessoaNotFoundException;
 import com.gpspamcary.pessoapamcary.model.Pessoa;
 import com.gpspamcary.pessoapamcary.repository.PessoaRepository;
+import com.gpspamcary.pessoapamcary.util.PessoaMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,29 +18,30 @@ public class PessoaService {
     @Autowired
     private PessoaRepository repository;
 
-    public List<Pessoa> findAll(){
-        return repository.findAll();
+    public List<PessoaDTO> findAll(){
+        return PessoaMapper.toListDTO(repository.findAll()) ;
     }
 
-    public Pessoa save(Pessoa pessoa) {
+    public PessoaDTO save(PessoaDTO pessoaDTO) {
         try{
-            return repository.save(pessoa);
+            Pessoa pessoa = PessoaMapper.toEntity(pessoaDTO);
+            return PessoaMapper.toDTO(repository.save(pessoa));
         }catch (Exception e){
             throw new PessoaDataBaseConstraintException(e.getMessage());
         }
     }
 
-    public Pessoa findByID(Long id) {
+    public PessoaDTO findByID(Long id) {
         Optional<Pessoa> optionalPessoa = repository.findById(id);
-        return optionalPessoa.orElseThrow(() -> new PessoaNotFoundException("not find by id" + id));
+        return PessoaMapper.toDTO(optionalPessoa.orElseThrow(() -> new PessoaNotFoundException("not find by id" + id)));
     }
 
     public void deleteById(Long id) {
         repository.deleteById(id);
     }
 
-    public Pessoa findByCPF(String cpf) {
+    public PessoaDTO findByCPF(String cpf) {
         Optional<Pessoa> optionalPessoa = repository.findByGpspamcaryPessoa001CPF(cpf);
-        return optionalPessoa.orElseThrow(() -> new PessoaNotFoundException("not find by cpf" + cpf));
+        return PessoaMapper.toDTO(optionalPessoa.orElseThrow(() -> new PessoaNotFoundException("not find by cpf" + cpf)));
     }
 }

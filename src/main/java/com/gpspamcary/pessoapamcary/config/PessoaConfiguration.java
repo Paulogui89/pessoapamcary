@@ -1,7 +1,8 @@
 package com.gpspamcary.pessoapamcary.config;
 
+import com.gpspamcary.pessoapamcary.dto.PessoaDTO;
 import com.gpspamcary.pessoapamcary.model.Pessoa;
-import com.gpspamcary.pessoapamcary.repository.PessoaRepository;
+import com.gpspamcary.pessoapamcary.service.PessoaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -14,21 +15,21 @@ import java.util.Arrays;
 @Configuration
 public class PessoaConfiguration {
     @Autowired
-    private PessoaRepository repository;
+    private PessoaService service;
 
     @Bean
     public void encherTabelaComAlgunsDados(){
-        Pessoa pessoa1 = new Pessoa("Paulo","12345","67890","SP","diadema","Avenida brasil");
-        Pessoa pessoa2 = new Pessoa("Simone","123456","678901","SP","diadema","rua Italia");
-        Pessoa pessoa3 = new Pessoa("Leandro","23456","78901","SP","diadema","rua Paranapanema 42 o sentido da vida");
-        Pessoa pessoa4 = new Pessoa("Simara","234567","789012","SP","diadema","rua Paranapanema");
-        Pessoa pessoa5 = new Pessoa("Carlos","34567","89012","SP","diadema","rua sao carlos");
+        PessoaDTO pessoa1 = new PessoaDTO("Paulo","12345","67890","SP","diadema","Avenida brasil");
+        PessoaDTO pessoa2 = new PessoaDTO("Simone","123456","678901","SP","diadema","rua Italia");
+        PessoaDTO pessoa3 = new PessoaDTO("Leandro","23456","78901","SP","diadema","rua Paranapanema 42 o sentido da vida");
+        PessoaDTO pessoa4 = new PessoaDTO("Simara","234567","789012","SP","diadema","rua Paranapanema");
+        PessoaDTO pessoa5 = new PessoaDTO("Carlos","34567","89012","SP","diadema","rua sao carlos");
 
-        repository.save(pessoa1);
-        repository.save(pessoa2);
-        repository.save(pessoa3);
-        repository.save(pessoa4);
-        repository.save(pessoa5);
+        service.save(pessoa1);
+        service.save(pessoa2);
+        service.save(pessoa3);
+        service.save(pessoa4);
+        service.save(pessoa5);
 
     }
 
