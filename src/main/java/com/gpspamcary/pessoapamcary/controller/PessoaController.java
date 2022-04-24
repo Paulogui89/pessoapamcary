@@ -27,7 +27,7 @@ public class PessoaController {
 
     @GetMapping("/{id}")
     public ResponseEntity<Pessoa> read(@PathVariable Long id){
-        return new ResponseEntity(service.findByID(id), HttpStatus.CREATED);
+        return new ResponseEntity(service.findByID(id), HttpStatus.OK);
     }
 
     @PutMapping
@@ -39,5 +39,10 @@ public class PessoaController {
     public ResponseEntity<?> delete(@PathVariable Long id){
         service.deleteById(id);
         return new ResponseEntity(HttpStatus.OK);
+    }
+
+    @GetMapping("/cpf/{cpf}")
+    public ResponseEntity<Pessoa> findByCPF(@PathVariable String cpf){
+        return new ResponseEntity(service.findByCPF(cpf), HttpStatus.OK);
     }
 }

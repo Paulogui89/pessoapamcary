@@ -36,4 +36,9 @@ public class PessoaService {
     public void deleteById(Long id) {
         repository.deleteById(id);
     }
+
+    public Pessoa findByCPF(String cpf) {
+        Optional<Pessoa> optionalPessoa = repository.findByGpspamcaryPessoa001CPF(cpf);
+        return optionalPessoa.orElseThrow(() -> new PessoaNotFoundException("not find by cpf" + cpf));
+    }
 }
