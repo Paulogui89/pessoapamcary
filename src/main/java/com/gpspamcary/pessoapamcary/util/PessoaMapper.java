@@ -1,6 +1,7 @@
 package com.gpspamcary.pessoapamcary.util;
 
 import com.gpspamcary.pessoapamcary.dto.PessoaDTO;
+import com.gpspamcary.pessoapamcary.exception.PessoaDataBaseConstraintException;
 import com.gpspamcary.pessoapamcary.model.Pessoa;
 
 import java.util.ArrayList;
@@ -30,6 +31,7 @@ public class PessoaMapper {
         pessoa.setGpspamcaryPessoa001Estado(dto.getGpspamcaryPessoa001Estado()!= null ? dto.getGpspamcaryPessoa001Estado().toUpperCase(Locale.ROOT): null);
         pessoa.setGpspamcaryPessoa001Cidade(dto.getGpspamcaryPessoa001Cidade()!= null ? dto.getGpspamcaryPessoa001Cidade().toUpperCase(Locale.ROOT): null);
         pessoa.setGpspamcaryPessoa001Endereco(dto.getGpspamcaryPessoa001Endereco()!= null ? dto.getGpspamcaryPessoa001Endereco().toUpperCase(Locale.ROOT): null);
+        ValidatePessoa(pessoa);
         return pessoa;
     }
 
@@ -41,4 +43,36 @@ public class PessoaMapper {
         }
         return listDTO;
     }
+
+    private static void ValidatePessoa(Pessoa pessoa) {
+        if(pessoa.getGpspamcaryPessoa001RG()!= null){
+            validateRG(pessoa.getGpspamcaryPessoa001RG());
+        }
+        if(pessoa.getGpspamcaryPessoa001CPF()!= null){
+            validateCPF(pessoa.getGpspamcaryPessoa001CPF());
+        }
+        if(pessoa.getGpspamcaryPessoa001Estado()!= null){
+            validateEstado(pessoa.getGpspamcaryPessoa001Estado());
+        }
+
+    }
+
+    private static void validateRG(String rg) {
+        if(rg.length() != 9){
+            throw new PessoaDataBaseConstraintException("RG Invalido");
+        }
+    }
+
+    private static void validateCPF(String cpf) {
+        if(cpf.length() != 11){
+            throw new PessoaDataBaseConstraintException("CPF Invalido");
+        }
+    }
+
+    private static void validateEstado(String estado) {
+        if(estado.length() != 2){
+            throw new PessoaDataBaseConstraintException("Estado Invalido");
+        }
+    }
+
 }

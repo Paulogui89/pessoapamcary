@@ -33,7 +33,7 @@ public class PessoaService {
 
     public PessoaDTO findByID(Long id) {
         Optional<Pessoa> optionalPessoa = repository.findById(id);
-        return PessoaMapper.toDTO(optionalPessoa.orElseThrow(() -> new PessoaNotFoundException("not find by id" + id)));
+        return PessoaMapper.toDTO(optionalPessoa.orElseThrow(() -> new PessoaNotFoundException("o id: " + id + " nao foi encontrado!")));
     }
 
     public void deleteById(Long id) {
@@ -42,6 +42,6 @@ public class PessoaService {
 
     public PessoaDTO findByCPF(String cpf) {
         Optional<Pessoa> optionalPessoa = repository.findByGpspamcaryPessoa001CPF(cpf.replaceAll("[^\\d]", ""));
-        return PessoaMapper.toDTO(optionalPessoa.orElseThrow(() -> new PessoaNotFoundException("not find by cpf" + cpf)));
+        return PessoaMapper.toDTO(optionalPessoa.orElseThrow(() -> new PessoaNotFoundException("o cpf: " + cpf + " nao foi encontrado!")));
     }
 }

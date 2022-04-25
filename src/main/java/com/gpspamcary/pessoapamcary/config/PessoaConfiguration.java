@@ -19,11 +19,11 @@ public class PessoaConfiguration {
 
     @Bean
     public void encherTabelaComAlgunsDados(){
-        PessoaDTO pessoa1 = new PessoaDTO("Paulo","12345","67890","SP","diadema","Avenida brasil");
-        PessoaDTO pessoa2 = new PessoaDTO("Simone","123456","678901","SP","diadema","rua Italia");
-        PessoaDTO pessoa3 = new PessoaDTO("Leandro","23456","78901","SP","diadema","rua Paranapanema 42 o sentido da vida");
-        PessoaDTO pessoa4 = new PessoaDTO("Simara","234567","789012","SP","diadema","rua Paranapanema");
-        PessoaDTO pessoa5 = new PessoaDTO("Carlos","34567","89012","SP","diadema","rua sao carlos");
+        PessoaDTO pessoa1 = new PessoaDTO("Paulo","000012345","00000067890","SP","diadema","Avenida brasil");
+        PessoaDTO pessoa2 = new PessoaDTO("Maria","000123456","00000678901","SP","sao caetano","rua Italia");
+        PessoaDTO pessoa3 = new PessoaDTO("Nilton","000023456","00000078901","SP","sao bernardo","rua Paranapanema 42 o sentido da vida");
+        PessoaDTO pessoa4 = new PessoaDTO("Otavio","000234567","00000789012","SP","santo andre","avenida popular");
+        PessoaDTO pessoa5 = new PessoaDTO("Raissa","000034567","00000089012","SP","sao paulo","rua sao carlos");
 
         service.save(pessoa1);
         service.save(pessoa2);

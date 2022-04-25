@@ -14,13 +14,13 @@ public class Pessoa {
     @Column(name = "gpspamcary_pessoa_001_nome_completo", nullable = false)
     private String gpspamcaryPessoa001NomeCompleto;
 
-    @Column(name = "gpspamcary_pessoa_001_rg", nullable = false, unique = true)
+    @Column(name = "gpspamcary_pessoa_001_rg", nullable = false, unique = true, length = 9)
     private String gpspamcaryPessoa001RG;
 
-    @Column(name = "gpspamcary_pessoa_001_cpf", nullable = false, unique = true)
+    @Column(name = "gpspamcary_pessoa_001_cpf", nullable = false, unique = true, length = 11)
     private String gpspamcaryPessoa001CPF;
 
-    @Column(name = "gpspamcary_pessoa_001_estado")
+    @Column(name = "gpspamcary_pessoa_001_estado", length = 2)
     private String gpspamcaryPessoa001Estado;
 
     @Column(name = "gpspamcary_pessoa_001_cidade")

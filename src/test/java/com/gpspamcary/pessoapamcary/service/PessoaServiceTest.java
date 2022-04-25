@@ -32,8 +32,8 @@ public class PessoaServiceTest {
 
     @Test
     public void saveTest() {
-        Pessoa pessoa1 = new Pessoa("PAULO","12345","67890","SP","DIADEMA","AVENIDA BRASIL");
-        PessoaDTO pessoaDTO1 = new PessoaDTO("Paulo","12345","67890","SP","diadema","Avenida brasil");
+        Pessoa pessoa1 = new Pessoa("PAULO","000012345","00000067890","SP","DIADEMA","AVENIDA BRASIL");
+        PessoaDTO pessoaDTO1 = new PessoaDTO("Paulo","000012345","00000067890","SP","diadema","Avenida brasil");
 
         Mockito.when(repository.save(any())).thenReturn(pessoa1);
         PessoaDTO pessoaResposta = service.save(pessoaDTO1);
@@ -43,7 +43,7 @@ public class PessoaServiceTest {
 
     @Test
     public void savefindByIDTest() {
-        Pessoa pessoa1 = new Pessoa("Paulo","12345","67890","SP","diadema","Avenida brasil");
+        Pessoa pessoa1 = new Pessoa("Paulo","000012345","00000067890","SP","diadema","Avenida brasil");
 
         pessoa1.setGpspamcaryPessoa001ID(1L);
         Mockito.when(repository.findById(1L)).thenReturn(Optional.of(pessoa1));
@@ -53,10 +53,10 @@ public class PessoaServiceTest {
 
     @Test
     public void findByCPFTest() {
-        Pessoa pessoa1 = new Pessoa("Paulo","12345","67890","SP","diadema","Avenida brasil");
-        Mockito.when(repository.findByGpspamcaryPessoa001CPF("67890")).thenReturn(Optional.of(pessoa1));
-        PessoaDTO pessoaResposta = service.findByCPF("67890");
-        assertEquals("67890", pessoaResposta.getGpspamcaryPessoa001CPF());
+        Pessoa pessoa1 = new Pessoa("Paulo","000012345","00000067890","SP","diadema","Avenida brasil");
+        Mockito.when(repository.findByGpspamcaryPessoa001CPF("00000067890")).thenReturn(Optional.of(pessoa1));
+        PessoaDTO pessoaResposta = service.findByCPF("00000067890");
+        assertEquals("00000067890", pessoaResposta.getGpspamcaryPessoa001CPF());
     }
 
     @Test
