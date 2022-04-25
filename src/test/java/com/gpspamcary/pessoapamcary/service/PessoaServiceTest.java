@@ -1,10 +1,8 @@
 package com.gpspamcary.pessoapamcary.service;
 
 import com.gpspamcary.pessoapamcary.dto.PessoaDTO;
-import com.gpspamcary.pessoapamcary.exception.PessoaDataBaseConstraintException;
 import com.gpspamcary.pessoapamcary.model.Pessoa;
 import com.gpspamcary.pessoapamcary.repository.PessoaRepository;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;

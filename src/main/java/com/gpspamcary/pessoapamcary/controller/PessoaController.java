@@ -1,7 +1,6 @@
 package com.gpspamcary.pessoapamcary.controller;
 
 import com.gpspamcary.pessoapamcary.dto.PessoaDTO;
-import com.gpspamcary.pessoapamcary.model.Pessoa;
 import com.gpspamcary.pessoapamcary.service.PessoaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

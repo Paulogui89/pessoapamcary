@@ -1,0 +1,145 @@
+{
+	"info": {
+		"_postman_id": "5862ea6f-d454-43ad-bd1b-05b4d0b7f751",
+		"name": "pamcary-app",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "List all Pessoas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/pessoa",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"pessoa"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Criar Pessoa",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"gpspamcaryPessoa001NomeCompleto\": \"Paulo\",\r\n        \"gpspamcaryPessoa001RG\": \"12345\",\r\n        \"gpspamcaryPessoa001CPF\": \"67890\",\r\n        \"gpspamcaryPessoa001Estado\": \"SP\",\r\n        \"gpspamcaryPessoa001Cidade\": \"diadema\",\r\n        \"gpspamcaryPessoa001Endereco\": \"Avenida brasil\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/pessoa",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"pessoa"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Achar Pessoa ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/pessoa/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"pessoa",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Achar Pessoa CPF",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/pessoa/cpf/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"pessoa",
+						"cpf",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Editar Pessoa",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"gpspamcaryPessoa001ID\": 1,\r\n        \"gpspamcaryPessoa001NomeCompleto\": \"Paulo Henrique\",\r\n        \"gpspamcaryPessoa001RG\": \"12345\",\r\n        \"gpspamcaryPessoa001CPF\": \"67890\",\r\n        \"gpspamcaryPessoa001Estado\": \"Sao Paulo\",\r\n        \"gpspamcaryPessoa001Cidade\": \"Diadema\",\r\n        \"gpspamcaryPessoa001Endereco\": \"rua equador 777\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/pessoa",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"pessoa"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deletar Pessoa",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/pessoa/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"pessoa",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
